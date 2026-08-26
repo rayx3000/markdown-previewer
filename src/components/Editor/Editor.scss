@@ -1,0 +1,21 @@
+@use "sass:math";
+
+.editor{
+    display: flex;
+    flex-direction: column;
+    width: math.div(1000px, 200px) * 11.5vw;
+    justify-content: center;
+}
+
+.toolbar{
+    display: flex;
+    background: #d1a9f5;
+    background: linear-gradient(328deg, rgba(209, 169, 245, 1) 0%, rgba(189, 179, 255, 1) 50%, rgba(232, 179, 255, 1) 100%);
+    justify-content: space-between;
+    padding: 5px 8px;
+}
+
+.editor textarea{
+    resize: none;
+    padding: 5px 8px;
+}

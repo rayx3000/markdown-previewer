@@ -3,7 +3,7 @@ import './Previewer.scss'
 
 const Previewer = () => {
   return (
-    <div>Previewer</div>
+    <div></div>
   )
 }
 

@@ -1,21 +1,40 @@
 @use "sass:math";
 
-.editor{
+.editor {
     display: flex;
     flex-direction: column;
     width: math.div(1000px, 200px) * 11.5vw;
     justify-content: center;
-}
 
-.toolbar{
-    display: flex;
-    background: #d1a9f5;
-    background: linear-gradient(328deg, rgba(209, 169, 245, 1) 0%, rgba(189, 179, 255, 1) 50%, rgba(232, 179, 255, 1) 100%);
-    justify-content: space-between;
-    padding: 5px 8px;
-}
+    .toolbar{
+        display: flex;
+        background: #d1a9f5;
+        background: linear-gradient(328deg, rgba(209, 169, 245, 1) 0%, rgba(189, 179, 255, 1) 50%, rgba(232, 179, 255, 1) 100%);
+        justify-content: space-between;
+        padding: 5px 8px;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
 
-.editor textarea{
-    resize: none;
-    padding: 5px 8px;
+        .toolbar-left{
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-family: "Cherry Bomb One", system-ui;
+            font-size: 1rem;
+            font-weight: 700;
+        }
+    }
+
+    textarea{
+        resize: none;
+        padding: 5px 8px;
+        height: 265px;
+        background: #eedbff;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+    }
+
+    textarea:focus{
+        outline: 1px solid #dfc0c0;
+    }
 }

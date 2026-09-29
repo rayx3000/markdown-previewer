@@ -1,24 +1,44 @@
-import React from 'react'
+import { useState } from 'react'
 import './Editor.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faFilePen, faMaximize } from '@fortawesome/free-solid-svg-icons'
+import { faFilePen, faMaximize, faMinimize } from '@fortawesome/free-solid-svg-icons'
 
-const Editor = () => {
+const Editor = ({ setMarkdown, markdown }) => {
+  const [expanded, setExpanded] = useState(false)
+
+  const handleChange = (event) => {
+    setMarkdown(event.target.value)
+  }
+
   return (
-    <div className="editor-wrap">
+    <section className={`editor-wrap${expanded ? ' expanded' : ''}`} aria-labelledby="editor-title">
       <div className="editor">
         <div className="toolbar">
           <div className="toolbar-left">
-            <FontAwesomeIcon icon={faFilePen} />
-            <span>Editor</span>
+            <FontAwesomeIcon icon={faFilePen} aria-hidden="true" />
+            <span id="editor-title">Editor</span>
           </div>
           <div className="toolbar-right">
-            <FontAwesomeIcon icon={faMaximize} />
+            <button
+              className="maximize"
+              type="button"
+              aria-label={expanded ? 'Restore editor size' : 'Expand editor'}
+              aria-pressed={expanded}
+              onClick={() => setExpanded((value) => !value)}
+            >
+              <FontAwesomeIcon icon={expanded ? faMinimize : faMaximize} aria-hidden="true" />
+            </button>
           </div>
         </div>
-        <textarea id="editor" type="text"></textarea>
+        <textarea
+          id="editor"
+          aria-label="Markdown editor"
+          value={markdown}
+          onChange={handleChange}
+          spellCheck="false"
+        />
       </div>
-    </div>
+    </section>
   )
 }
 
